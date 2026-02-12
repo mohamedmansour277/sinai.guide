@@ -482,6 +482,32 @@ ul a:hover {
 .toggle-password:hover {
   opacity: 1;
 }
+.signWithGoogle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 10px; */
+  color: var(--mainColor);
+}
+.googleBtn {
+  border: var(--mainColor) solid 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 40px;
+  border-radius: 50px;
+  background-color: var(--textColor);
+  color: var(--mainColor);
+  margin: auto;
+  transition: all 0.3s ease;
+  /* height: 20px; */
+  font-weight: 500;
+}
+.googleBtn:hover {
+  background-color:#a977573c;
+
+}
 
 /* //////////////////////// Responsive ////////////////////////////// */
 .logAndMenuBar {
@@ -584,7 +610,7 @@ ul a:hover {
   .smallScreen {
     display: block;
   }
-  .menuBar{
+  .menuBar {
     margin: 0px 0px 0px 10px;
   }
 }
