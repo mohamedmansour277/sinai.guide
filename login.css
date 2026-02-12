@@ -584,9 +584,8 @@ ul a:hover {
   .smallScreen {
     display: block;
   }
-  .logSign{
-    width: 150px;
-  }
+  a .signUp{
+    font-weight: 14px;
   .menuBar{
     margin: 0px 0px 0px 10px;
   }
