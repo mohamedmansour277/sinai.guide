@@ -483,26 +483,38 @@ ul a:hover {
   opacity: 1;
 }
 .signWithGoogle {
+  margin-top: 5px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   /* gap: 10px; */
   color: var(--mainColor);
+  /* border: var(--mainColor) solid 1px; */
+  background-color: var(--textColor);
+  /* border-radius: 5px; */
 }
 .googleBtn {
-  border: var(--mainColor) solid 1px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 40px;
-  border-radius: 50px;
-  background-color: var(--textColor);
+  width: 100%;
+  /* align-content: center; */
   color: var(--mainColor);
-  margin: auto;
+  border: var(--mainColor) solid 1px;
+  background-color: var(--textColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 10px; */
+  padding: 5px 0px;
+  border-radius: 10px;
+  color: var(--mainColor);
+  /* margin: auto; */
   transition: all 0.3s ease;
   /* height: 20px; */
   font-weight: 500;
+}
+.googleBtn svg {
+  width: 30px;
+  height: 30px;
 }
 .googleBtn:hover {
   background-color:#a977573c;
