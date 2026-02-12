@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="login.css">
+  <script src="https://kit.fontawesome.com/d661c04406.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- *=================navbar============================ -->
+  <header>
+    <div class="logoSec">
+      <a href="#link" class="logo">
+        <img style src="./imgs/logo.jpg" alt="Sinai Guide Logo">
+        <span>Sinai Guide</span>
+      </a>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#link">About us</a></li>
+        <li><a href="#link">Blog</a></li>
+        <li><a href="#link">Services</a></li>
+      </ul>
+    </nav>
+    <div class="searchDiv">
+      <div class="row">
+        <input type="text" placeholder="Search..." id="inputSearch">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div class="resualts">
+        <!-- results by js  -->
+      </div>
+    </div>
+    <div class="logAndMenuBar">
+      <div class="logSign">
+        <a href="#" class="signUp">Sign up</a>
+        <a href="#" class="logIn">Login</a>
+      </div>
+      <div class="menuBar" id="menuBar">
+        <div class="line" id="line1"></div>
+        <div class="line" id="line2"></div>
+      </div>
+    </div>
+  </header>
+  <!-- *=================log and sign ============================ -->
+  <div class="loginSignContainer">
+    <div class="loginSignSec" dir="">
+      <div class="loginSignContent">
+        <div class="loginSignChoise">
+          <div class="loginChoise">
+            <a href="" class="loga">Log In</a>
+          </div>
+          <div class="backgroundSL"></div>
+          <div class="signChoise">
+            <a href="" class="signa">Sign up</a>
+          </div>
+        </div>
+        <div class="loginSec">
+          <h1 class="loginH2">Hello!</h1>
+          <p class="loginP">Welcome to <span>Sinai Guide</span></p>
+          <form action="/">
+            <div class="inputControl">
+              <label for="emailInput">Email</label>
+              <input id="emailInput" type="email" placeholder="Your email">
+            </div>
+            <div class="inputControl">
+              <label for="passInput">Password</label>
+              <div class="password-wrapper">
+                <input id="passInput" type="password" placeholder="Your password">
+                <i class="fa-solid fa-eye-slash toggle-password" id="eye-login"></i>
+              </div>
+            </div>
+            <p class="pForget">
+              <a href="">Forget your password?</a>
+            </p>
+            <!-- <input type="submit"  value="Log in"> -->
+            <button class="submitInput" id="LoginSubmit" type="submit">log in</button>
+            <div class="form-error-msg" id="formErrorMsg">Please fill in all fields correctly!</div>
+          </form>
+        </div>
+        <div class="signSec">
+          <h1 class="loginH2">Create new Account</h1>
+          <p class="loginP">Join the <span>Sinai Guide</span> community</p>
+          <form action="/">
+            <div class="inputControl">
+              <label for="nameInputSign">Full Name</label>
+              <input id="nameInputSign" type="text" placeholder="Your name">
+            </div>
+            <div class="inputControl">
+              <label for="emailInputSign">Email</label>
+              <input id="emailInputSign" type="email" placeholder="Your email">
+            </div>
+            <div class="inputControl">
+              <label for="passInputSign">Password</label>
+              <div class="password-wrapper">
+                <input id="passInputSign" type="password" placeholder="Your password">
+                <i class="fa-solid fa-eye-slash toggle-password" id="eye-sign"></i>
+              </div>
+            </div>
+
+            <div class="inputControl">
+              <label for="confPassInputSign">Confirm Password</label>
+              <div class="password-wrapper">
+                <input id="confPassInputSign" type="password" placeholder="Confirm your password">
+                <i class="fa-solid fa-eye-slash toggle-password" id="eye-conf"></i>
+              </div>
+            </div>
+            <!-- <input type="submit"  value="Log in"> -->
+            <button class="submitInput" id="signUpSubmit" type="submit">Sign up</button>
+            <div class="form-error-msg" id="formErrorMsg">Please fill in all fields correctly!</div>
+          </form>
+        </div>
+      </div>
+      <div class="loginImg">
+        <!-- <div class="kalamPicture"></div> -->
+      </div>
+    </div>
+  </div>
+  <!-- *=================footer ============================ -->
+  <footer>
+    <div class="box1ofFooter">
+      <a href="#link" class="logo">
+        <div class="logoAndTitleFooter">
+          <img style src="./imgs/logo.jpg" alt="">
+          <h3>Sinai Guide</h3>
+        </div>
+      </a>
+      <ul class="largeScreen">
+        <li>
+          <i class="fa-solid fa-phone"></i>
+          <a style="margin: 0; padding: 0;" href="">01029456680</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot"></i>
+          <a style="margin: 0; padding: 0;" href="">North Sinai</a>
+        </li>
+      </ul>
+      <ul class="smallScreen">
+        <li>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam exercitationem mollitia autem nobis, nihil
+            accusantium sint optio asperiores cum, Deserunt voluptatum molestiae assumenda optio! Ullam, culpa?</p>
+        </li>
+      </ul>
+      <p class="largeScreen">Copyright © 2026</p>
+      <ul style="display: flex; justify-content: space-around; align-items: center; width: 20%">
+        <li>
+          <a style="margin: 0; padding: 0 5px;" href="#link"><i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+          <a style="margin: 0; padding: 0 5px;" href="#link"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+          <a style="margin: 0; padding: 0 5px;" href="#link"><i class="fa-brands fa-x"></i></a>
+        </li>
+        <li>
+          <a style="margin: 0; padding: 0 5px;" href="#link"><i class="fa-brands fa-linkedin"></i></a>
+        </li>
+      </ul>
+      <p class="smallScreen" style="margin: auto; border-top: var(--textColor) solid 2px; padding: 5px;">All rights
+        reseved © 2026 Sinai Guide</p>
+    </div>
+    <div class="box2ofFooter">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="#link">Eat & Drink</a></li>
+        <li><a href="#link">Pets Friendly</a></li>
+        <li><a href="#link">Entertainment</a></li>
+      </ul>
+    </div>
+    <div class="box2ofFooter locationBox">
+      <h3>Locations</h3>
+      <ul>
+        <li><a href="#link">Arish</a></li>
+        <li><a href="#link">Ber el abd</a></li>
+        <li><a href="#link">Shekh zewid</a></li>
+    </div>
+    <div class="box2ofFooter">
+      <h3>Developed by <span>Sinai Guide</span></h3>
+      <ul>
+        <li><a href="#link">FAQs</a></li>
+        <li><a href="#link">Partnerships</a></li>
+        <li><a href="#link">Terms of Service</a></li>
+    </div>
+  </footer>
+  <script src="search.js"></script>
+  <script src="logSign.js"></script>
+  <script src="menubar.js"></script>
+  <script src="validation.js"></script>
+</body>
+
+</html>
