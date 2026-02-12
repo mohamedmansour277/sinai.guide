@@ -584,9 +584,9 @@ ul a:hover {
   .smallScreen {
     display: block;
   }
-  /* footer .logo{
-    margin: auto;
-  } */
+  .logSign{
+    scale: .8;
+  }
 }
 
 /** ////////////////// footer ////////////////////////// */
