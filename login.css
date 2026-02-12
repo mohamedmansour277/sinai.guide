@@ -585,7 +585,7 @@ ul a:hover {
     display: block;
   }
   .logSign a {
-    padding: 2px 5px;
+    padding: 2px 0px;
   }
   .menuBar{
     margin: 0px 0px 0px 5px;
