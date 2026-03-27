@@ -303,6 +303,7 @@ ul a:hover {
   /* padding: 20px; */
 }
 .loginH2 {
+  font-size: 20px;
   margin-top: 10px;
   width: fit-content;
   color: var(--mainColor);
