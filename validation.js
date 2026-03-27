@@ -1,3 +1,7 @@
+// =============================================
+// validation.js — Real-time Input Validation
+// =============================================
+
 const patterns = {
     name: /^[a-zA-Z\s\u0600-\u06FF]{3,30}$/,
     email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -14,15 +18,16 @@ function applyStyle(input, isValid) {
     }
     if (input.value === "") input.classList.remove('input-error', 'input-success');
 }
+
 function checkPasswordMatch() {
     const pass = document.getElementById('passInputSign');
     const confPass = document.getElementById('confPassInputSign');
-    
+    if (!pass || !confPass) return;
+
     if (confPass.value === "") {
         confPass.classList.remove('input-error', 'input-success');
         return;
     }
-
     if (confPass.value === pass.value && pass.classList.contains('input-success')) {
         applyStyle(confPass, true);
     } else {
@@ -30,47 +35,37 @@ function checkPasswordMatch() {
     }
 }
 
-document.getElementById('emailInput').addEventListener('input', (e) => applyStyle(e.target, patterns.email.test(e.target.value)));
-document.getElementById('passInput').addEventListener('input', (e) => applyStyle(e.target, patterns.password.test(e.target.value)));
-document.getElementById('nameInputSign').addEventListener('input', (e) => applyStyle(e.target, patterns.name.test(e.target.value)));
-document.getElementById('emailInputSign').addEventListener('input', (e) => applyStyle(e.target, patterns.email.test(e.target.value)));
-document.getElementById('passInputSign').addEventListener('input', () => {
-    applyStyle(document.getElementById('passInputSign'), patterns.password.test(document.getElementById('passInputSign').value));
+// ─── Live validation listeners ─────────────────────────────────────────────
+
+document.getElementById('emailInput')?.addEventListener('input', (e) =>
+    applyStyle(e.target, patterns.email.test(e.target.value)));
+
+document.getElementById('passInput')?.addEventListener('input', (e) =>
+    applyStyle(e.target, patterns.password.test(e.target.value)));
+
+document.getElementById('nameInputSign')?.addEventListener('input', (e) =>
+    applyStyle(e.target, patterns.name.test(e.target.value)));
+
+document.getElementById('emailInputSign')?.addEventListener('input', (e) =>
+    applyStyle(e.target, patterns.email.test(e.target.value)));
+
+document.getElementById('passInputSign')?.addEventListener('input', () => {
+    const el = document.getElementById('passInputSign');
+    applyStyle(el, patterns.password.test(el.value));
     checkPasswordMatch();
 });
-document.getElementById('confPassInputSign').addEventListener('input', checkPasswordMatch);
 
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        const inputs = this.querySelectorAll('input');
-        const errorDisplay = this.querySelector('.form-error-msg');
-        let isFormValid = true;
+document.getElementById('confPassInputSign')?.addEventListener('input', checkPasswordMatch);
 
-        inputs.forEach(input => {
-            if (!input.classList.contains('input-success')) {
-                isFormValid = false;
-                input.classList.add('input-error');
-            }
-        });
+// ─── Password Toggle (covers all forms including modals) ───────────────────
 
-        if (!isFormValid) {
-            e.preventDefault();
-            errorDisplay.style.display = 'block';
-            errorDisplay.classList.add('shake-error');
-            setTimeout(() => errorDisplay.classList.remove('shake-error'), 300);
-        } else {
-            errorDisplay.style.display = 'none';
-        }
-    });
-});
-const togglePasswordIcons = document.querySelectorAll('.toggle-password');
-
-togglePasswordIcons.forEach(icon => {
-    icon.addEventListener('click', function() {
-        const passwordInput = this.previousElementSibling;
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('toggle-password')) {
+        const passwordInput = e.target.previousElementSibling;
+        if (!passwordInput) return;
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
-    });
+        e.target.classList.toggle('fa-eye');
+        e.target.classList.toggle('fa-eye-slash');
+    }
 });
