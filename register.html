@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Sinai Guide</title>
+  <meta name="description" content="Create your Sinai Guide account and start exploring the best places in Sinai — restaurants, entertainment, and more.">
+  <link rel="stylesheet" href="register.css">
+  <script src="https://kit.fontawesome.com/d661c04406.js" crossorigin="anonymous"></script>
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+  <!-- ===== Navbar ===== -->
+  <header>
+    <div class="logoSec">
+      <a href="index.html" class="logo">
+        <img src="imgs/logo.jpg" alt="Sinai Guide Logo">
+        <span>Sinai Guide</span>
+      </a>
+    </div>
+    <div class="nav-auth">
+      <span class="nav-auth-text">Already have an account?</span>
+      <a href="login.html" class="nav-login-btn" id="navGoLogin">Log In</a>
+    </div>
+  </header>
+
+  <!-- ===== Main Register Page ===== -->
+  <main class="register-page">
+
+    <!-- Left decorative panel -->
+    <div class="register-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-icon">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <h2>Discover Sinai</h2>
+        <p>Join thousands of explorers and find the best spots for food, fun, and adventure across North Sinai.</p>
+        <ul class="hero-features">
+          <li><i class="fa-solid fa-check-circle"></i> Curated local recommendations</li>
+          <li><i class="fa-solid fa-check-circle"></i> Exclusive member-only deals</li>
+          <li><i class="fa-solid fa-check-circle"></i> Save your favourite places</li>
+          <li><i class="fa-solid fa-check-circle"></i> Real reviews from locals</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="register-form-panel">
+      <div class="register-form-box">
+
+        <!-- Heading -->
+        <div class="form-header">
+          <h1>Create your account</h1>
+          <p>It's free and only takes a minute!</p>
+        </div>
+
+        <!-- Google Sign-up -->
+        <div class="google-signup-wrap" id="g_id_onload"
+          data-client_id="1072963131673-pd1bjbbo92bs7p9kmjjbehu1q7ena7o8.apps.googleusercontent.com"
+          data-callback="handleGoogleCredential"
+          data-auto_prompt="false">
+          <div class="g_id_signin"
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signup_with"
+            data-size="large"
+            data-logo_alignment="left"
+            data-width="340">
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+          <span>or sign up with email</span>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="registerForm" onsubmit="return false;">
+
+          <!-- Full Name -->
+          <div class="input-group">
+            <label for="regName">Full Name</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input id="regName" type="text" placeholder="Your full name" autocomplete="name">
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label for="regEmail">Email Address</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input id="regEmail" type="email" placeholder="you@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <label for="regPass">Password</label>
+            <div class="input-wrapper password-wrapper">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input id="regPass" type="password" placeholder="Create a password" autocomplete="new-password">
+              <i class="fa-solid fa-eye-slash toggle-password" id="eye-reg-pass"></i>
+            </div>
+            <!-- Password strength bar -->
+            <div class="strength-bar-wrap">
+              <div class="strength-bar" id="strengthBar"></div>
+            </div>
+            <span class="strength-label" id="strengthLabel"></span>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input-group">
+            <label for="regConfPass">Confirm Password</label>
+            <div class="input-wrapper password-wrapper">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input id="regConfPass" type="password" placeholder="Repeat your password" autocomplete="new-password">
+              <i class="fa-solid fa-eye-slash toggle-password" id="eye-reg-conf"></i>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="terms-row">
+            <label class="checkbox-label" for="agreeTerms">
+              <input type="checkbox" id="agreeTerms">
+              <span class="custom-checkbox"></span>
+              I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+            </label>
+          </div>
+
+          <!-- Error Message -->
+          <div class="form-error-msg" id="regErrorMsg"></div>
+
+          <!-- Submit -->
+          <button class="submit-btn" id="regSubmit" type="submit">
+            <span class="btn-text">Create Account</span>
+            <i class="fa-solid fa-arrow-right btn-icon"></i>
+          </button>
+
+        </form>
+
+        <!-- Login Link -->
+        <p class="login-link-text">
+          Already have an account? <a href="login.html" id="goLogin">Log in</a>
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Email Confirmation Modal ===== -->
+  <div class="sg-modal" id="confirmEmailModal" style="display:none;">
+    <div class="sg-modal-box">
+      <button class="sg-modal-close" onclick="closeConfirmEmailModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="sg-modal-icon">
+        <i class="fa-solid fa-envelope-circle-check"></i>
+      </div>
+      <h2>Check Your Email</h2>
+      <p class="sg-modal-desc">We sent a confirmation code to <strong id="sentToEmail"></strong>. Enter it below to activate your account.</p>
+      <form onsubmit="return false;">
+        <div class="input-group">
+          <label for="confirmEmailInput">Email</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input id="confirmEmailInput" type="email" placeholder="Your email" autocomplete="email">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="confirmCodeInput">Confirmation Code</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-key input-icon"></i>
+            <input id="confirmCodeInput" type="text" placeholder="Enter 6-digit code" maxlength="10" autocomplete="one-time-code">
+          </div>
+        </div>
+        <button class="submit-btn" id="confirmEmailSubmit" type="submit">
+          <span class="btn-text">Confirm Email</span>
+          <i class="fa-solid fa-check btn-icon"></i>
+        </button>
+        <div class="form-error-msg" id="confirmEmailError"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer"></div>
+
+  <script src="auth.js"></script>
+  <script src="register.js"></script>
+</body>
+
+</html>
