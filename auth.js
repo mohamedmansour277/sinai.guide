@@ -41,17 +41,56 @@ function updateNavbarUI() {
 
     if (isLoggedIn()) {
         const user = getUserSession();
+        const initial = (user.name || user.email || '?')[0].toUpperCase();
         logSignDiv.innerHTML = `
-            <span class="userGreeting">👋 ${user.name || user.email}</span>
-            <button class="logoutBtn" id="logoutBtn">Logout</button>
+            <div class="sg-profile" id="sgProfile">
+                <button class="sg-avatar" id="sgAvatarBtn" aria-label="Profile menu">
+                    ${initial}
+                </button>
+                <div class="sg-dropdown" id="sgDropdown">
+                    <div class="sg-dropdown-header">
+                        <div class="sg-dropdown-avatar">${initial}</div>
+                        <div class="sg-dropdown-info">
+                            <span class="sg-dropdown-name">${user.name || 'User'}</span>
+                            <span class="sg-dropdown-email">${user.email || ''}</span>
+                        </div>
+                    </div>
+                    <div class="sg-dropdown-divider"></div>
+                    <button class="sg-dropdown-item" id="changePassNavBtn">
+                        <i class="fa-solid fa-lock"></i> Change Password
+                    </button>
+                    <div class="sg-dropdown-divider"></div>
+                    <button class="sg-dropdown-item sg-dropdown-logout" id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </div>
+            </div>
         `;
+
+        document.getElementById('sgAvatarBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('sgDropdown').classList.toggle('sg-dropdown-open');
+        });
+
+        document.addEventListener('click', function closeDropdown(e) {
+            const profile = document.getElementById('sgProfile');
+            if (!profile || !profile.contains(e.target)) {
+                document.getElementById('sgDropdown')?.classList.remove('sg-dropdown-open');
+                document.removeEventListener('click', closeDropdown);
+            }
+        });
+
         document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+        document.getElementById('changePassNavBtn')?.addEventListener('click', () => {
+            document.getElementById('sgDropdown')?.classList.remove('sg-dropdown-open');
+            if (typeof openChangePasswordModal === 'function') openChangePasswordModal();
+        });
+
     } else {
         logSignDiv.innerHTML = `
             <a href="#" class="signUp" id="navSignUp">SignUp</a>
             <a href="#" class="logIn" id="navLogIn">Login</a>
         `;
-        // Re-attach open modal listeners
         document.getElementById('navSignUp').addEventListener('click', (e) => {
             e.preventDefault();
             openAuthModal('sign');
