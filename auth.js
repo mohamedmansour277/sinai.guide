@@ -88,17 +88,9 @@ function updateNavbarUI() {
 
     } else {
         logSignDiv.innerHTML = `
-            <a href="#" class="signUp" id="navSignUp">SignUp</a>
-            <a href="#" class="logIn" id="navLogIn">Login</a>
+            <a href="register.html" class="signUp" id="navSignUp">SignUp</a>
+            <a href="login.html" class="logIn" id="navLogIn">Login</a>
         `;
-        document.getElementById('navSignUp').addEventListener('click', (e) => {
-            e.preventDefault();
-            openAuthModal('sign');
-        });
-        document.getElementById('navLogIn').addEventListener('click', (e) => {
-            e.preventDefault();
-            openAuthModal('login');
-        });
     }
 }
 

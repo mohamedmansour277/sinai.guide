@@ -10,28 +10,32 @@ const signSec = document.querySelector('.signSec');
 
 // ─── Tab Switching ─────────────────────────────────────────────────────────
 
-signChoice.onclick = (e) => {
+signChoice?.addEventListener('click', (e) => {
     e.preventDefault();
-    bgSlide.style.left = "50%";
-    loginSec.style.display = "none";
-    signSec.style.display = "flex";
-    document.querySelector('.signa').style.color = "white";
-    document.querySelector('.loga').style.color = "var(--mainColor)";
-}
+    if(bgSlide) bgSlide.style.left = "50%";
+    if(loginSec) loginSec.style.display = "none";
+    if(signSec) signSec.style.display = "flex";
+    const signa = document.querySelector('.signa');
+    const loga = document.querySelector('.loga');
+    if(signa) signa.style.color = "white";
+    if(loga) loga.style.color = "var(--mainColor)";
+});
 
-logChoice.onclick = (e) => {
+logChoice?.addEventListener('click', (e) => {
     e.preventDefault();
-    bgSlide.style.left = "0%";
-    signSec.style.display = "none";
-    loginSec.style.display = "flex";
-    document.querySelector('.loga').style.color = "white";
-    document.querySelector('.signa').style.color = "var(--mainColor)";
-}
+    if(bgSlide) bgSlide.style.left = "0%";
+    if(signSec) signSec.style.display = "none";
+    if(loginSec) loginSec.style.display = "flex";
+    const signa = document.querySelector('.signa');
+    const loga = document.querySelector('.loga');
+    if(loga) loga.style.color = "white";
+    if(signa) signa.style.color = "var(--mainColor)";
+});
 
 // ─── Login Form Handler ────────────────────────────────────────────────────
 
 const loginSubmitBtn = document.getElementById('LoginSubmit');
-loginSubmitBtn.addEventListener('click', async (e) => {
+loginSubmitBtn?.addEventListener('click', async (e) => {
     e.preventDefault();
     const email = document.getElementById('emailInput').value.trim();
     const password = document.getElementById('passInput').value.trim();
@@ -62,7 +66,7 @@ loginSubmitBtn.addEventListener('click', async (e) => {
 // ─── Sign Up Form Handler ──────────────────────────────────────────────────
 
 const signUpSubmitBtn = document.getElementById('signUpSubmit');
-signUpSubmitBtn.addEventListener('click', async (e) => {
+signUpSubmitBtn?.addEventListener('click', async (e) => {
     e.preventDefault();
     const name = document.getElementById('nameInputSign').value.trim();
     const email = document.getElementById('emailInputSign').value.trim();
